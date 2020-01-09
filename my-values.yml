@@ -1,2 +1,40 @@
-Value1: some-val
-Value2: another-val
+global-config:
+    startFeed: true
+    futures: 
+        - 559
+        - 535
+        - 534
+        - 536
+    sportsBySeason:
+        - 109
+        - 111
+        - 118
+        - 110
+        - 112
+        - 113
+        - 121
+pregame-config:
+    fullOddsRecoveryCron: 0 0 */4 * * *
+    fetchSchedule: false
+    allowFullOddsRecovery: false
+    amountDaysForSchedule: 30
+    rabbit-mq:
+        odds-matches:
+            exchange: BR_Pregame_Odds
+            queue: BR_Pregame_Odds_Feed
+            isDurable: true
+            autodelete: false
+        settlements:
+            exchange: BR_Pregame_Settlements
+            queue: BR_Pregame_Settlements
+            isDurable: true
+            autodelete: false
+live-config:
+    fetchBookedMatches: false
+    fetchBookedMatchesCron: 0 */10 * * * *
+    daysAmountSchedule: 7
+    checkBetradarApi: true
+    check-betradar-api-timer: 20000
+    timeout: 10000
+    timeoutTries: 3
+
